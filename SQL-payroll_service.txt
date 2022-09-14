@@ -139,3 +139,19 @@ mysql> SELECT Gender, COUNT(Gender) FROM employee_payroll GROUP BY Gender;
 +--------+---------------+
 2 rows in set (0.00 sec)
 ----------------------------------------------------------------------------------------------------------------------------------------
+//UC8:
+
+mysql> ALTER TABLE employee_payroll ADD Phone int, ADD Address varchar(50) DEFAULT 'India', ADD Department varchar(30) NOT NULL;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * from employee_payroll;
++----+---------+--------+--------+------------+-------+---------+------------+
+| id | Name    | Gender | Salary | Start_Date | Phone | Address | Department |
++----+---------+--------+--------+------------+-------+---------+------------+
+|  1 | Tom     | M      | 900000 | 2022-09-10 |  NULL | India   |            |
+|  2 | Terissa | F      | 700000 | 2022-05-10 |  NULL | India   |            |
+|  3 | Charly  | M      | 500000 | 2022-03-10 |  NULL | India   |            |
++----+---------+--------+--------+------------+-------+---------+------------+
+3 rows in set (0.00 sec)
+-----------------------------------------------------------------------------------------------------------------------------------------
