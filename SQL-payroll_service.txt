@@ -155,3 +155,19 @@ mysql> SELECT * from employee_payroll;
 +----+---------+--------+--------+------------+-------+---------+------------+
 3 rows in set (0.00 sec)
 -----------------------------------------------------------------------------------------------------------------------------------------
+//UC9:
+
+mysql> ALTER TABLE employee_payroll ADD Basic_Pay int, ADD Deduction int, ADD Taxable_Pay int, ADD Income_Tax int, ADD Net_Pay int;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * from employee_payroll;
++----+---------+--------+--------+------------+-------+---------+------------+-----------+-----------+-------------+------------+---------+
+| id | Name    | Gender | Salary | Start_Date | Phone | Address | Department | Basic_Pay | Deduction | Taxable_Pay | Income_Tax | Net_Pay |
++----+---------+--------+--------+------------+-------+---------+------------+-----------+-----------+-------------+------------+---------+
+|  1 | Tom     | M      | 900000 | 2022-09-10 |  NULL | India   |            |      NULL |      NULL |        NULL |       NULL |    NULL |
+|  2 | Terissa | F      | 700000 | 2022-05-10 |  NULL | India   |            |      NULL |      NULL |        NULL |       NULL |    NULL |
+|  3 | Charly  | M      | 500000 | 2022-03-10 |  NULL | India   |            |      NULL |      NULL |        NULL |       NULL |    NULL |
++----+---------+--------+--------+------------+-------+---------+------------+-----------+-----------+-------------+------------+---------+
+3 rows in set (0.00 sec)
+-----------------------------------------------------------------------------------------------------------------------------------------------------
