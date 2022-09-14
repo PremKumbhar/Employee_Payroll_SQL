@@ -50,3 +50,21 @@ mysql> SELECT * FROM employee_payroll;
 |  3 | Charly  | 500000 | 2022-03-10 |
 +----+---------+--------+------------+
 3 rows in set (0.00 sec)
+----------------------------------------------------------------------------------------------------------------------------------------
+mysql> SELECT Salary FROM employee_payroll WHERE name ="Tom";
++--------+
+| Salary |
++--------+
+| 900000 |
++--------+
+1 row in set (0.01 sec)
+
+
+mysql> SELECT Name, Start_Date FROM employee_payroll WHERE Start_Date Between CAST("2022-04-01"AS DATE)AND DATE(NOW());
++---------+------------+
+| Name    | Start_Date |
++---------+------------+
+| Tom     | 2022-09-10 |
+| Terissa | 2022-05-10 |
++---------+------------+
+2 rows in set (0.01 sec)
