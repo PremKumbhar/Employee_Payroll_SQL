@@ -68,3 +68,28 @@ mysql> SELECT Name, Start_Date FROM employee_payroll WHERE Start_Date Between CA
 | Terissa | 2022-05-10 |
 +---------+------------+
 2 rows in set (0.01 sec)
+----------------------------------------------------------------------------------------------------------------------------------------
+//UC6
+
+mysql> ALTER TABLE employee_payroll ADD Gender CHAR(1) AFTER Name;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE employee_payroll set Gender = 'M' where Name = 'Tom' or Name = 'Charly';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 2  Changed: 0  Warnings: 0
+
+mysql> UPDATE employee_payroll set Gender = 'F' where Name = 'Terissa';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> SELECT * from employee_payroll;
++----+---------+--------+--------+------------+
+| id | Name    | Gender | Salary | Start_Date |
++----+---------+--------+--------+------------+
+|  1 | Tom     | M      | 900000 | 2022-09-10 |
+|  2 | Terissa | F      | 700000 | 2022-05-10 |
+|  3 | Charly  | M      | 500000 | 2022-03-10 |
++----+---------+--------+--------+------------+
+3 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------------------------------------------
