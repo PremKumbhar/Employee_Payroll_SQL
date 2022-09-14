@@ -16,3 +16,19 @@ mysql> show databases;
 | world              |
 +--------------------+
 9 rows in set (0.01 sec)
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> create table employee_payroll(id int PRIMARY KEY AUTO_INCREMENT , Name varchar(20) , Salary int , Start_Date DATE);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc employee_payroll;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int         | NO   | PRI | NULL    | auto_increment |
+| Name       | varchar(20) | YES  |     | NULL    |                |
+| Salary     | int         | YES  |     | NULL    |                |
+| Start_Date | date        | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+----------------------------------------------------------------------------------------------------------------------------------------
