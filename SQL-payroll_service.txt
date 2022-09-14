@@ -171,3 +171,41 @@ mysql> SELECT * from employee_payroll;
 +----+---------+--------+--------+------------+-------+---------+------------+-----------+-----------+-------------+------------+---------+
 3 rows in set (0.00 sec)
 -----------------------------------------------------------------------------------------------------------------------------------------------------
+//UC10:
+
+CREATE TABLE Department (
+			department_id int PRIMARY KEY , 
+			Name varchar(30), 
+			Department varchar(30) NOT NULL,
+			employee_id int,
+			FOREIGN KEY (employee_id) REFERENCES employee_payroll(id) ); 
+
+mysql> desc Department;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| department_id | int         | NO   | PRI | NULL    |       |
+| Name          | varchar(30) | YES  |     | NULL    |       |
+| Department    | varchar(30) | NO   |     | NULL    |       |
+| employee_id   | int         | YES  | MUL | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+ALTER TABLE employee_payroll DROP COLUMN Department;
+  
+	INSERT INTO employee_payroll VALUES(4, 'Rijo', 'F', 300000, '2021-10-10', 989999998, 'US', 123456, 123, 123, 123, 123); 
+  
+	INSERT INTO department VALUES (2, 'Rijo', 'Marketing', 4);
+      INSERT INTO department VALUES (1, 'Rijo', 'Sales', 4);
+
+mysql> SELECT * FROM employee_payroll LEFT JOIN department ON employee_payroll.id = department.employee_id;
++----+---------+--------+--------+------------+-----------+---------+-----------+-----------+-------------+------------+---------+---------------+------+------------+-------------+
+| id | Name    | Gender | Salary | Start_Date | Phone     | Address | Basic_Pay | Deduction | Taxable_Pay | Income_Tax | Net_Pay | department_id | Name | Department | employee_id |
++----+---------+--------+--------+------------+-----------+---------+-----------+-----------+-------------+------------+---------+---------------+------+------------+-------------+
+|  1 | Tom     | M      | 900000 | 2022-09-10 |      NULL | India   |      NULL |      NULL |        NULL |       NULL |    NULL |          NULL | NULL | NULL       |        NULL |
+|  2 | Terissa | F      | 700000 | 2022-05-10 |      NULL | India   |      NULL |      NULL |        NULL |       NULL |    NULL |          NULL | NULL | NULL       |        NULL |
+|  3 | Charly  | M      | 500000 | 2022-03-10 |      NULL | India   |      NULL |      NULL |        NULL |       NULL |    NULL |          NULL | NULL | NULL       |        NULL |
+|  4 | Rijo    | F      | 300000 | 2021-10-10 | 989999998 | US      |    123456 |       123 |         123 |        123 |     123 |             2 | Rijo | Marketing  |           4 |
+|  4 | Rijo    | F      | 300000 | 2021-10-10 | 989999998 | US      |    123456 |       123 |         123 |        123 |     123 |             1 | Rijo | Sales      |           4 |
++----+---------+--------+--------+------------+-----------+---------+-----------+-----------+-------------+------------+---------+---------------+------+------------+-------------+
+5 rows in set (0.00 sec)
